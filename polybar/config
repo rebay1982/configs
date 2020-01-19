@@ -17,8 +17,9 @@
 ;==========================================================
 
 [colors]
-background = #000
+background = #88000000
 foreground = #fff
+disabled = #888
 green = #0f0
 red = #f00
 yellow = #ff0
@@ -32,20 +33,18 @@ font-1 = "FontAwesome:style=Regular"
 
 padding = 0
 module-margin = 1
+underline-size = 1
 
 modules-right = battery backlight volume wifi
 modules-center = time date
-modules-left = user
+modules-left = user i3 
 
 tray-position = right
 tray-detached = false
 tray-maxsize = 16
-
 tray-offset-x = 0
 tray-offset-y = 0
-
 tray-padding = 2
-
 tray-scale = 1.0
 
 
@@ -88,8 +87,8 @@ adapter = ADP0
 time-format = %H:%M
 label-discharging = %percentage%% (%time%)
 label-charging = %percentage%% (%time%)
-label-full =  %percentage%% (%time%)
-
+label-full =  %percentage%%
+ 
 format-discharging = <ramp-capacity> <label-discharging>
 format-charging = <animation-charging> <label-charging>
 
@@ -102,7 +101,7 @@ animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 750
 
 ramp-capacity-0 = 
-rramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1 = 
 ramp-capacity-1-foreground = ${colors.yellow}
 ramp-capacity-2 = 
@@ -118,10 +117,28 @@ interval = 5
 
 label-volume =  %percentage%%
 label-muted =  %percentage%%
-label-muted-foreground = #666
+label-muted-foreground = ${colors.disabled}
 
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
 label =  %percentage%%
+
+[module/i3]
+type = internal/i3
+index-sort = true
+enable-click = false
+enable-scroll = false
+reverse-scroll = false
+wrapping-scroll = false
+
+label-focused = %index%
+label-focused-underline = ${colors.foreground} 
+label-focused-padding = 1 
+
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+label-visible = %index%
+label-visible-padding = 1
 
