@@ -195,18 +195,19 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && amixer set Master on #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && amixer set Master on #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
-bindsym XF86Display exec --no-startup-id  ~/display.sh # mute sound
+bindsym XF86Display exec --no-startup-id  ~/display.sh
 
 # Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pactl set-sink-mute 0 0 #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pactl set-sink-mute 0 0 #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pactl set-sink-mute 0 0 #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pactl set-sink-mute 0 0 #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
-exec_always --no-startup-id compton
-exec_always --no-startup-id feh --bg-scale "/home/rbaydoun/Pictures/58204.jpg"
+exec_always --no-startup-id picom
+# exec_always --no-startup-id feh --bg-scale "/home/rbaydoun/Pictures/nord/4k-minimalist-wallpaper-121421.jpg"
+exec_always --no-startup-id feh --bg-fill "/home/rbaydoun/Pictures/nord/nord.jpg"
 exec_always --no-startup-id ~/.config/polybar/launch.sh

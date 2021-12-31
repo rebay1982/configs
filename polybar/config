@@ -17,12 +17,14 @@
 ;==========================================================
 
 [colors]
-background = #88000000
-foreground = #fff
-disabled = #888
-green = #0f0
-red = #f00
-yellow = #ff0
+background = #2E3440
+foreground = #D8DEE9
+disabled = #4C566A
+green = #A3BE8C
+red = #BF616A
+yellow = #EBCB8B
+blue = #5E81AC
+pale_blue = #88C0D0
 
 [bar/mybar]
 foreground = ${colors.foreground}
@@ -31,8 +33,7 @@ background = ${colors.background}
 font-0 = "Hack:pixelsize=10;0"
 font-1 = "FontAwesome5Free:style=Regular:size=10"
 font-2 = "FontAwesome5Free:style=Solid:size=10"
-font-3 = "FontAwesome5Brands:stye=Regular:size=10"
-
+;font-3 = "FontAwesome5Brands:stye=Regular:size=10"
 
 padding = 1
 module-margin = 1
@@ -41,15 +42,6 @@ underline-size = 1
 modules-right = battery backlight volume wifi
 modules-center = time date
 modules-left = user i3 
-
-;tray-position = right
-;tray-detached = false
-;tray-maxsize = 16
-;tray-offset-x = 0
-;tray-offset-y = 0
-;tray-padding = 2
-;tray-scale = 1.0
-
 
 [module/time]
 type = internal/date
@@ -63,7 +55,7 @@ type = internal/date
 interval = 5
 
 time = %H:%M
-date = %d/%m/%Y
+date = %Y/%m/%d
 label =  %date%
 
 [module/wifi]
@@ -145,6 +137,7 @@ wrapping-scroll = false
 
 label-focused = %index%
 label-focused-underline = ${colors.foreground} 
+;label-focused-background = ${colors.blue}
 label-focused-padding = 1 
 
 label-unfocused = %index%
