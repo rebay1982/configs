@@ -1,0 +1,8 @@
+su
+wpa_passphrase <SSID> <passphrase> >> /etc/wpa_supplicant/wpa_supplicant-wlp1s0.conf
+
+CTRL+D
+
+sudo killall wpa_supplicant
+sudo wpa_supplicant -B -i wlp1s0 -c /etc/wpa_supplicant/wpa_supplicant-wlp1s0.conf
+sudo dhcpcd wlp1s0
