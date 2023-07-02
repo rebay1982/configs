@@ -16,6 +16,10 @@ set $right l
 
 # Your preferred terminal emulator
 set $term alacritty
+set $term_float alacritty --title floating_terminal
+
+
+set $once ~/.config/sway/scripts/once.sh
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -27,7 +31,8 @@ set $menu wofi -G -p command -L 10 -S run -s ~/.config/wofi/wofi.css -t alacritt
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output "*" bg ~/Pictures/wallhaven-3z6ped.jpg fill
+output "*" bg ~/Pictures/apollo-17-on-the-surface-of-luna-5120x1440-v0-gc6xrreqr7y81.png fill
+
 #
 # Example configuration:
 #
@@ -56,10 +61,11 @@ client.unfocused #000000 #2e3440 #000000
 
 
 ### Input configuration
+# To get identifiers, use 'swaymsg -t get_inputs'
 #
 # MOUSE Input Configuration:
 #
-input "1267:12753:VEN_04F3:00_04F3:31D1_Touchpad" {
+input type:touchpad {
   tap enabled
   drag_lock enabled
   dwt enabled
@@ -69,19 +75,19 @@ input "1267:12753:VEN_04F3:00_04F3:31D1_Touchpad" {
 }
 
 #
-# KEYBOARD - Laptop
+# KEYBOARDs 
 #
-input "1:1:AT_Translated_Set_2_keyboard" {
+input type:keyboard {
   repeat_delay 250
   repeat_rate 30
 }
 
+### Window Defaults
 #
-# KEYBOARD - Cyber Home
-input "17498:4641:DZTECH_DZ60RGB_ANSI_Keyboard" {
-  repeat_delay 250
-  repeat_rate 30
-}
+#
+#
+for_window [title="floating_terminal"] floating enabled, sticky enable
+
 
 ### Key bindings
 #
@@ -178,7 +184,7 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ to
 #
 # Screenshot
 #
-bindsym Print exec ~/screenshot.sh
+bindsym Print exec ~/.config/sway/scripts/screenshot.sh
 
 
 #
@@ -266,10 +272,6 @@ exec waybar
 set $laptop_display eDP-1
 bindswitch --reload --locked lid:on output $laptop_display disable
 bindswitch --reload --locked lid:off output $laptop_display enable 
-exec always ~/display.sh
-
-
-
-
+exec always ~/.config/sway/scripts/display.sh
 
 include /etc/sway/config.d/*

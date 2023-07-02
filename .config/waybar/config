@@ -36,8 +36,16 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "format":"{: %H:%M   %Y-%m-%d}",
+				"calendar": {
+						"mode": "month",
+						"mode-mon-col": 3,
+						"format": {
+								"months": "<b>{}</b>",
+								"today": "<b><u>{}</u></b>",
+						}
+				},
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -60,12 +68,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {essid} {signalStrength}%",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr} -> {gwaddr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": " Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+				"on-click": "swaymsg exec \"\\$once \\$term_float --command nmtui\"",
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -83,7 +91,8 @@
             "portable": "",
             "car": "",
             "default": ["", "", ""]
-        }
+        },
+				"on-click": "swaymsg exec \"\\$once \\$term_float --command alsamixer\"",
     },
 	  "custom/user":{
 			"exec": "/usr/bin/whoami",
