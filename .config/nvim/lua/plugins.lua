@@ -19,7 +19,20 @@ return require('lazy').setup({
 		lazy = false,
 		version = nil,
 	},
+	{
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v2.x',
+		dependencies = {
+			{'neovim/nvim-lspconfig'},             -- Required
+			{'williamboman/mason.nvim'},           -- Optional
+			{'williamboman/mason-lspconfig.nvim'}, -- Optional
 
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},     -- Required
+			{'hrsh7th/cmp-nvim-lsp'}, -- Required
+			{'L3MON4D3/LuaSnip'},     -- Required
+		},
+	},
 	'nvim-treesitter/nvim-treesitter',
 	'preservim/nerdtree',
 --	use {
@@ -38,11 +51,11 @@ return require('lazy').setup({
 --      	"MunifTanjim/nui.nvim",
 --    	}
 --  }
-  {
+	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = { {'nvim-lua/plenary.nvim'} }
-  },
-  {
+	},
+	{
 		'arcticicestudio/nord-vim',
 		config = function()
 			vim.cmd('colorscheme nord')
