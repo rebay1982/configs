@@ -39,8 +39,8 @@ return require('lazy').setup({
 --		'ryanoasis/vim-devicons',
 --		requires = { {'preservim/nerdtree'} }
 --	}
-	'airblade/vim-gitgutter',
-
+--	'airblade/vim-gitgutter',
+	'lewis6991/gitsigns.nvim',
 --	use {'mfussenegger/nvim-lint'}
 
 --	use {
