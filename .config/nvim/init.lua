@@ -7,3 +7,4 @@ require("config.plugins")
 
 -- Lsp Configuration
 require("lsp.lsp")
+require("lsp.gopls")

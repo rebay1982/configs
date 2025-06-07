@@ -1,21 +1,13 @@
 return {
 	{
-		"mason-org/mason.nvim",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"mason-org/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
+		opts = {
+			ensure_installed = { "gopls" },
+			automatic_installation = true,
 		},
-
-		opts = {},
-		config = function()
-			require("mason").setup()
-
-			require("mason-lspconfig").setup({
-				ensure_installed = {"gopls"},
-				automatic_installation = true,
-			})
-
-			vim.lsp.enable("gopls")
-		end,
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
 	},
 }
