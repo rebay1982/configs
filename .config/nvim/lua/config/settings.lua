@@ -14,3 +14,9 @@ vim.opt.updatetime = 100
 
 vim.opt.autoread = true
 vim.opt.scrolloff = 8
+
+vim.diagnostic.config({
+	signs = true,
+	underline = true,
+	virtual_text = true
+})
