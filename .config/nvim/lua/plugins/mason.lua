@@ -2,7 +2,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "gopls" },
+			ensure_installed = { "gopls", "pylsp" },
 			automatic_installation = true,
 		},
 		dependencies = {
