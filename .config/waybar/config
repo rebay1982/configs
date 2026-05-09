@@ -3,11 +3,11 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 0, // Gaps between modules (4px)
+    "spacing": 12, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["custom/user", "sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "backlight", "network", "battery"],
+    "modules-right": ["pulseaudio", "backlight", "network", "bluetooth", "battery"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -37,7 +37,7 @@
     },
     "clock": {
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "format":"{: %H:%M   %Y-%m-%d}",
+        "format":" {:%H:%M   %Y-%m-%d}",
 				"calendar": {
 						"mode": "month",
 						"mode-mon-col": 3,
@@ -68,7 +68,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "  {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr} -> {gwaddr}",
         "format-linked": "{ifname} (No IP)",
@@ -111,6 +111,16 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "bluetooth": {
+        "format": "{icon} {status}",
+        "format-icons": {
+            "enabled": "",
+            "disabled": "-",
+            "connected": ""
+        },
+        "tooltip-format": "{controller_alias}: {status}",
+        "on-click": "swaymsg exec \"\\$once \\$term_float --command bluetui\"",
     }
 }
 
